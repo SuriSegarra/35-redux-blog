@@ -1,11 +1,11 @@
-import { postBlog } from './postActions';
+import { postBlog, deletePost } from './postActions';
 
 describe('post actions', () => {
 
     it('post a blog', () => {
-        const blogPost = postBlog('test title', 'test body');
+        const actions = postBlog('test title', 'test body');
 
-        expect(blogPost).toEqual({
+        expect(actions).toEqual({
             type: 'POST',
             payload: {
                 title: 'test title',
@@ -13,4 +13,13 @@ describe('post actions', () => {
             }
         });
     });
+    
+    it('deletes a blog post', () => {
+        const actions = deletePost('test deleted post');
+
+        expect(actions).toEqual({
+            type: 'DELETE',
+            payload: 'test deleted post'
+        })
+    })
 });
