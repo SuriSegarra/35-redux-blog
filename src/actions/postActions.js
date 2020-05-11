@@ -5,3 +5,8 @@ export const postBlog = (title, body) => ({
         body
     }
 });
+
+export const deletePost = (postBlog) => ({
+    type: 'DELETE',
+    payload: postBlog
+});
